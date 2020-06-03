@@ -1,13 +1,23 @@
 #!/usr/bin/env bash
 
+SEMEDDB_DOWNLOAD_PATH=https://skr3.nlm.nih.gov/SemMedDB/download/
+SEMEDDB_VERSION=31
+SEMMEDB_FILE_PREFIX=semmedVER${SEMEDDB_VERSION}
+SEMEDDB_PUBMED_VERSION=to12312017
+
+SEMMEDDB_PREDICATION_FILE=${SEMMEDB_FILE_PREFIX}_R_PREDICATION_${SEMEDDB_PUBMED_VERSION}
+SEMMEDDB_PREDICATION_ARCHIVE=${SEMMEDDB_PREDICATION_FILE}.sql.gz
+SEMMEDDB_PREDICATION_DOWNLOAD=${SEMEDDB_DOWNLOAD_PATH}${SEMMEDDB_PREDICATION_ARCHIVE}
+SEMMEDDB_PREDICATION_CSV=${SEMMEDDB_PREDICATION_FILE}.csv
+
 # https://skr3.nlm.nih.gov/SemMedDB/download/download.html
-wget -N "https://skr3.nlm.nih.gov/SemMedDB/download/semmedVER31_R_PREDICATION_to12312017.sql.gz"
+wget -N ${SEMMEDDB_PREDICATION_DOWNLOAD}
 
 # prepend colnames
-cp col_names.txt semmedVER31_R_PREDICATION_to12312017.csv
+cp col_names.txt ${SEMMEDDB_PREDICATION_CSV}
 
 # convert mysqldump to csv
-zcat semmedVER31_R_PREDICATION_to12312017.sql.gz| python3 mysqldump_to_csv.py >> semmedVER31_R_PREDICATION_to12312017.csv
+zcat ${SEMMEDDB_PREDICATION_ARCHIVE}| python3 mysqldump_to_csv.py >> ${SEMMEDDB_PREDICATION_CSV}
 
 
 # download umls metathesarous files
