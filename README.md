@@ -1,21 +1,24 @@
 # semmed-biolink
-normalization of sememd db to biolink model
 
+Loading of the Semantic Medline Database ("semmeddb") into a Neo4j database and normalization to the BioLink model.  
+
+These operations are best done on a *nix system (Linux, OSX) given the dependency of various steps on *nix shell and OS operations.
 
 ### Steps
 
-- Run download_convert.sh to download SemMedDB and related files and convert mysql dump to csv
-- Run the ipynbs in order
+- Run the shell `source` command on the `setup_environment.sh` script, to set up environment variables for the work. See the script for what variables are set (and may be overridden).
+- After setting the environment variables, run `download_convert.sh` to download SemMedDB with related files and convert the mysql dump to csv
+- Run the Jupiter Notebooks (ipynb's) in order
 
 01-initial_data_clean.ipynb
 - Expand predicates with OR operations into individual predicates
-- Convert cuis that are entrez ids into cuis
+- Convert CUIs that are Entrez ids into CUIs
 - Change neg props to the same prop with a negative flag
 - Make a separate nodes table
 
 02-normalize_node_types_to_biolink.ipynb
 - For each node, get the UMLS semantic type for each umls cui
-- Map umls semantic types to biolink node types (blm_to_umls_nodes.json)
+- Map UMLS semantic types to Biolink node types (blm_to_umls_nodes.json)
 - Nodes with no matching type are removed
 
 03-filter_nodes_edges.ipynb
@@ -48,16 +51,3 @@ insane, I know.
 
 06-neo4j
  - reformat for neo4j import
-
-### Result
-Start:  
-20,620,113 edges  
-268,918 nodes  
-32 predicates  
-15 node types  
-  
-End:  
-14,033,126 edges  
-165,658 nodes  
-18 predicates  
-13 node types  

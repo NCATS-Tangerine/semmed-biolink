@@ -12,6 +12,7 @@ signal(SIGPIPE, SIG_DFL)
 # allow large content in the dump
 csv.field_size_limit(sys.maxsize)
 
+
 def is_insert(line):
     """
     Returns true if the line begins a SQL insert statement.
@@ -110,6 +111,7 @@ def main():
                     parse_values(values, sys.stdout)
     except KeyboardInterrupt:
         sys.exit(0)
+
 
 if __name__ == "__main__":
     main()
