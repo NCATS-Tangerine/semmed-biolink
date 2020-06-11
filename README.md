@@ -15,7 +15,7 @@ A "new" procedure relying more heavily on the [NCATS KGX project software]() is 
 For both protocols, the following data and meta-data downloading steps are required before either post-processing operations are attempted.
 
 - Run the shell `source` command on the `setup_environment.sh` script, to set up environment variables for the work. See this script for what variables are set (and may be overridden).
-- After setting the environment variables, run `download_convert.sh` to download SemMedDB with related files and convert the mysql dump to CSV
+- After setting the environment variables, run `download_convert.sh` to download SemMedDB with related files and convert the `mysql` dump to a comma separated values (CSV) file for further post-processing.
 
 ## New KGX Data Processing Procedure
 
