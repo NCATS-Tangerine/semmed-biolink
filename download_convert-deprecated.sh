@@ -20,4 +20,4 @@ wget -N "https://download.nlm.nih.gov/umls/kss/2018AA/umls-2018AA-full.zip"
 # zcat MRCONSO.RRF.gz| grep -F "|ENG|" | gzip > rm MRCONSO_ENG.RRF.gz
 
 # download unii fda data and unzip
-wget -N "http://fdasis.nlm.nih.gov/srs/download/srs/UNII_Data.zip"
+wget -N "https://fdasis.nlm.nih.gov/srs/download/srs/UNII_Data.zip"

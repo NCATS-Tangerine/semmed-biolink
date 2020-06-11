@@ -22,7 +22,7 @@ Next, download the (meta-)data.  Unfortunately, the original protocol used a `ba
 
     1. SEMMEDDB_PREDICATION_DOWNLOAD
     1. UMLS_DOWNLOAD
-    1. [UNII_Data.zip](http://fdasis.nlm.nih.gov/srs/download/srs/UNII_Data.zip)
+    1. [UNII_Data.zip](https://fdasis.nlm.nih.gov/srs/download/srs/UNII_Data.zip)
 
 2. Run the `predications_to_csv.sh` script (which converts the SEMMEDDB_PREDICATION_ARCHIVE file to the SEMMEDDB_PREDICATION_CSV file).
 
