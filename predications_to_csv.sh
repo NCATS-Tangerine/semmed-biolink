@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-
-if [[  -z ${SEMMEDDB_PREDICATION_DOWNLOAD} ]]; then
+if [[  -z ${SEMMEDDB_PREDICATION_ARCHIVE} ]]; then
      echo 'Run the setup_environment.sh script before attempting to run this script!';
      exit 0;
 fi
