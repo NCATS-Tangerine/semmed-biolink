@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-echo "Downloading and pre-processing SemMedDb"
-
 #
 # SemMedDb 2019 data release values in original Greg Stupp script
 #
@@ -14,9 +12,9 @@ echo "Downloading and pre-processing SemMedDb"
 # SemMedDb 2020 data release values taken as defaults in June 2020 script
 # These are the only variables which normally might be overridden from the command line
 #
-${SEMEDDB_DOWNLOAD_PATH:=https://ii.nlm.nih.gov/SemRep_SemMedDB_SKR/SemMedDB/download/}
-${SEMEDDB_VERSION:=42}
-${SEMEDDB_PUBMED_RELEASE:=2020}
+: ${SEMEDDB_DOWNLOAD_PATH:=https://ii.nlm.nih.gov/SemRep_SemMedDB_SKR/SemMedDB/download/}
+: ${SEMEDDB_VERSION:=42}
+: ${SEMEDDB_PUBMED_RELEASE:=2020}
 
 echo
 echo "SemMedDb Data Parameters (variables that might be overridden from the command line):"
@@ -43,5 +41,26 @@ export SEMMEDDB_PREDICATION_CSV=${SEMMEDDB_PREDICATION_FILE}.csv
 echo
 echo "SemMedDb Predication File Variables (normally not overridden but generated from above SemMedDb parameters):"
 echo
-echo Source SEMMEDDB_PREDICATION_DOWNLOAD: ${SEMMEDDB_PREDICATION_DOWNLOAD}
-echo Target SEMMEDDB_PREDICATION_CSV: ${SEMMEDDB_PREDICATION_CSV}
+echo SEMMEDDB_PREDICATION_ARCHIVE: ${SEMMEDDB_PREDICATION_ARCHIVE}
+echo SEMMEDDB_PREDICATION_DOWNLOAD: ${SEMMEDDB_PREDICATION_DOWNLOAD}
+echo SEMMEDDB_PREDICATION_CSV: ${SEMMEDDB_PREDICATION_CSV}
+
+#
+# Original "classic" release  used https://download.nlm.nih.gov/umls/kss/2018AA/umls-2018AA-full.zip
+#
+# But we update to the latest UMLS release
+#
+: ${UMLS_VERSION:="2020AA"}
+export UMLS_ARCHIVE="umls-${UMLS_VERSION}-full.zip"
+export UMLS_DOWNLOAD="https://download.nlm.nih.gov/umls/kss/${UMLS_VERSION}/${UMLS_ARCHIVE}"
+
+echo
+echo "UMLS Metadata version (update to set to latest version, as necessary):"
+echo
+echo UMLS_VERSION: ${UMLS_VERSION}
+echo
+echo "UMLS Metadata file variables (normally not overridden but generated for above UMLS_VERSION):"
+echo
+echo UMLS_ARCHIVE: ${UMLS_ARCHIVE}
+echo UMLS_DOWNLOAD: ${UMLS_DOWNLOAD}
+echo

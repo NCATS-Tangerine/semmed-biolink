@@ -1,6 +1,6 @@
 # semmed-biolink
 
-This project provides a systematic protocol of (shell and Python) scripts to load the the [Semantic Medline Database ("semmeddb")](https://skr3.nlm.nih.gov/SemMedDB/) into a [Biolink Model](https://github.com/biolink/biolink-model) compliant Neo4j database.  
+This project provides a systematic protocol of (bash shell and Python) scripts to load the the [Semantic Medline Database ("semmeddb")](https://skr3.nlm.nih.gov/SemMedDB/) into a [Biolink Model](https://github.com/biolink/biolink-model) compliant Neo4j database.  
 
 ## Processing Options
 
@@ -14,8 +14,23 @@ A "new" procedure relying more heavily on the [NCATS KGX project software]() is 
 
 For both protocols, the following data and meta-data downloading steps are required before either post-processing operations are attempted.
 
-- Run the shell `source` command on the `setup_environment.sh` script, to set up environment variables for the work. See this script for what variables are set (and may be overridden).
-- After setting the environment variables, run `download_convert.sh` to download SemMedDB with related files and convert the `mysql` dump to a comma separated values (CSV) file for further post-processing.
+First,  for convenience, run the shell `source` command on the `setup_environment.sh` script, to set up environment variables for the work. See this script for what variables are set (and may be overridden).
+
+Next, download the (meta-)data.  Unfortunately, the original protocol used a `bash` script to download the (meta-)data but given NLM (UTS) authentication is required to access some of these files, then the original `dataload_convert.sh` script won't likely work and has been tagged as deprecated. Rather, the following  steps should be used:
+
+1. Log into NLM UTS and download the following target into your chosen working directory, URLs as defined by the specified environment variables (in CAPS below)  which were set by the `setup_environment.sh` script:
+
+    1. SEMMEDDB_PREDICATION_DOWNLOAD
+    1. UMLS_DOWNLOAD
+    1. [UNII_Data.zip](http://fdasis.nlm.nih.gov/srs/download/srs/UNII_Data.zip)
+
+2. Run the `predications_to_csv.sh` script (which converts the SEMMEDDB_PREDICATION_ARCHIVE file to the SEMMEDDB_PREDICATION_CSV file).
+
+3. Manually unzip the UMLS_ARCHIVE, extract the contained files, then put all of the RRF files into one folder (e.g. `umls`). Run the following operations on the indicated files the `umls` folder:
+
+    1. `zcat MRCONSO.RRF.a* | gzip > MRCONSO.RRF.gz && rm MRCONSO.RRF.a*`
+    2. `zcat MRSAT.RRF.a* | gzip > MRSAT.RRF.gz && rm MRSAT.RRF.a*`
+    3. `zcat MRCONSO.RRF.gz| grep -F "|ENG|" | gzip > rm MRCONSO_ENG.RRF.gz`
 
 ## New KGX Data Processing Procedure
 
