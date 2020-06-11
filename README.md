@@ -1,14 +1,29 @@
 # semmed-biolink
 
-Loading of the Semantic Medline Database ("semmeddb") into a Neo4j database and normalization to the BioLink model.  
+This project provides a systematic protocol of (shell and Python) scripts to load the the [Semantic Medline Database ("semmeddb")](https://skr3.nlm.nih.gov/SemMedDB/) into a [Biolink Model](https://github.com/biolink/biolink-model) compliant Neo4j database.  
 
-These operations are best done on a *nix system (Linux, OSX) given the dependency of various steps on *nix shell and OS operations.
+## Processing Options
 
-### Steps
+These operations are best attempted on a *nix system (Linux, OSX) given the dependency of various steps on *nix specific (bash) and OS operations.
 
-- Run the shell `source` command on the `setup_environment.sh` script, to set up environment variables for the work. See the script for what variables are set (and may be overridden).
-- After setting the environment variables, run `download_convert.sh` to download SemMedDB with related files and convert the mysql dump to csv
-- Run the Jupiter Notebooks (ipynb's) in order
+Note that the original "classical" project formula involved the downloading of the SemMedDb source dataset and associated metadata, then the post-processing of the data using Jupyter Notebooks. 
+
+A "new" procedure relying more heavily on the [NCATS KGX project software]() is under development and will likely become the standard procedure in the (near) future.
+
+## The Common (Meta-)Data Downloading Step
+
+For both protocols, the following data and meta-data downloading steps are required before either post-processing operations are attempted.
+
+- Run the shell `source` command on the `setup_environment.sh` script, to set up environment variables for the work. See this script for what variables are set (and may be overridden).
+- After setting the environment variables, run `download_convert.sh` to download SemMedDB with related files and convert the mysql dump to CSV
+
+## New KGX Data Processing Procedure
+
+T.B.A.
+
+## "Classical" Data Processing Procedure
+
+Run the following Jupiter Notebooks (ipynb's) in order
 
 01-initial_data_clean.ipynb
 - Expand predicates with OR operations into individual predicates

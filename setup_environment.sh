@@ -9,8 +9,9 @@ echo "Downloading and pre-processing SemMedDb"
 # SEMEDDB_VERSION=31
 # SEMEDDB_PUBMED_RELEASE=to12312017
 #
-# SemMedDb 2020 data release values in June 2020 script
+
 #
+# SemMedDb 2020 data release values taken as defaults in June 2020 script
 # These are the only variables which normally might be overridden from the command line
 #
 ${SEMEDDB_DOWNLOAD_PATH:=https://ii.nlm.nih.gov/SemRep_SemMedDB_SKR/SemMedDB/download/}
