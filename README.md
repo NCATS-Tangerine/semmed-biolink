@@ -26,7 +26,7 @@ Next, download the (meta-)data.  Unfortunately, the original protocol used a `ba
 
 2. Run the `predications_to_csv.sh` script (which converts the SEMMEDDB_PREDICATION_ARCHIVE file to the SEMMEDDB_PREDICATION_CSV file).
 
-3. Manually unzip the UMLS_ARCHIVE, extract the contained files, then put all of the RRF files into one folder (e.g. `umls`). Run the following operations on the indicated files the `umls` folder:
+3. Manually unzip the UMLS_ARCHIVE, extract the contained files into one folder (e.g. `2020AA-full`). This archive contains the MetamorphoSys - The UMLS Installation and Customization Program which must now be used to generate the required Metathesaurus - Rich Release Format (RRF) files (see list below). Consult the [UMLS® Reference Manual instructions](https://www.ncbi.nlm.nih.gov/books/NBK9683/) on how to do this. Run the following operations on the following RRF data folder:
 
     1. `zcat MRCONSO.RRF.a* | gzip > MRCONSO.RRF.gz && rm MRCONSO.RRF.a*`
     2. `zcat MRSAT.RRF.a* | gzip > MRSAT.RRF.gz && rm MRSAT.RRF.a*`
