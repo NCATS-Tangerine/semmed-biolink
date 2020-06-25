@@ -31,6 +31,7 @@ Next, download the (meta-)data.  Unfortunately, the original protocol used a `ba
     1. gzip -c MRCONSO.RRF  > MRCONSO.RRF.gz
     2. gzip -c MRSAT.RRF > MRSAT.RRF.gz 
     3. cat MRCONSO.RRF | grep -F "|ENG|" | gzip > MRCONSO_ENG.RRF.gz
+    4. gzip -c MRSTY.RRF > MRSTY.RRF.gz 
 
 ## New KGX Data Processing Procedure
 
