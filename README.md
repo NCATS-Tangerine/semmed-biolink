@@ -112,5 +112,9 @@ insane, I know.
 - biological_process_or_activity/activity_and_behavior: umls has GO
 - gene: umls has HGNC and OMIM
 
-06-neo4j
- - reformat for neo4j import
+06a-neo4j-classical-load
+- reformat for neo4j import (old method, not using KGX)
+
+006-kgx-load
+- reformat for KGX import
+
