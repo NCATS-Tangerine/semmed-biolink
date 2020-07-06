@@ -116,5 +116,5 @@ insane, I know.
 - reformat for neo4j import (old method, not using KGX)
 
 006-kgx-load
-- reformat for KGX import
+- reformat the SemMedDb datasets for KGX import
 
