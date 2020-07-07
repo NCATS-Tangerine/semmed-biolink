@@ -15,26 +15,28 @@ SEMGROUPS = "https://metamap.nlm.nih.gov/Docs/SemGroups_2013.txt"
 SEMTYPES = "https://metamap.nlm.nih.gov/Docs/SemanticTypes_2013AA.txt"
 
 # Pipeline of data files, don't really need to change between updates
-EDGES1_CSV = DATA+"edges1.csv"
-EDGES2_CSV = DATA+"edges2.csv"
-EDGES3_CSV = DATA+"edges3.csv"
-EDGES4_CSV = DATA+"edges4.csv"
+EDGES1_TSV = DATA + "edges1.tsv"
+EDGES2_TSV = DATA + "edges2.tsv"
+EDGES3_TSV = DATA + "edges3.tsv"
+EDGES4_TSV = DATA + "edges4.tsv"
 
-NODES1_CSV = DATA+"nodes1.csv"
-NODES_BLM_CSV = DATA+"nodes_blm.csv"
+NODES1_TSV = DATA + "nodes1.tsv"
+NODES_BLM_TSV = DATA + "nodes_blm.tsv"
 
-EDGES_FILTERED_CSV = DATA+"edges_filtered.csv"
-NODES_FILTERED_CSV = DATA+"nodes_filtered.csv"
+EDGES_FILTERED_TSV = DATA + "edges_filtered.tsv"
+NODES_FILTERED_TSV = DATA + "nodes_filtered.tsv"
 
-EDGES_BIOLINK_CSV = DATA+"edges_biolink.csv"
-NODES_BIOLINK_CSV = DATA+"nodes_biolink.csv"
+EDGES_BIOLINK_TSV = DATA + "edges_biolink.tsv"
+NODES_BIOLINK_TSV = DATA + "nodes_biolink.tsv"
 
 UNII_RECORDS = DATA+"UNII_Records_23May2020.txt"
 XREFS_SHELVE = DATA+"xrefs.shelve"
 UBERON_CSV = DATA+"uberon.csv"
 DOID_CSV = DATA+"doid.csv"
-MESH_XREFS_CSV = DATA+"mesh_xrefs.csv"
-NODES_XREF_CSV = DATA+"nodes_xref.csv"
 
-NODES_KGX_CSV = DATA+"nodes_kgx.csv"
-EDGES_KGX_CSV = DATA+"edges_kgx.csv"
+MESH_XREFS_TSV = DATA+"mesh_xrefs.tsv"
+
+NODES_XREF_TSV = DATA + "nodes_xref.tsv"
+
+NODES_KGX_TSV = DATA+"nodes_kgx.tsv"
+EDGES_KGX_TSV = DATA+"edges_kgx.tsv"
