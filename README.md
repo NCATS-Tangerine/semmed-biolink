@@ -1,6 +1,6 @@
 # semmed-biolink
 
-This project provides a systematic protocol of (bash shell and Python) scripts to load the the [Semantic Medline Database ("semmeddb")](https://skr3.nlm.nih.gov/SemMedDB/) into a [Biolink Model](https://github.com/biolink/biolink-model) compliant Neo4j database.  
+This project provides a systematic protocol of (bash shell and Python) scripts to load the the [Semantic Medline Database ("semmeddb")](https://ii.nlm.nih.gov/SemRep_SemMedDB_SKR/SemMedDB/SemMedDB_download.shtml) into a [Biolink Model](https://github.com/biolink/biolink-model) compliant Neo4j database.  
 
 ## Processing Options
 
