@@ -6,3 +6,4 @@ venv
 *.RRF
 .idea/
 data
+__pycache__/
