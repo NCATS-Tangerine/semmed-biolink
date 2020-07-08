@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-GUNZIP=/usr/bin/env gunzip
+GUNZIP="/usr/bin/env gunzip"
 SOURCE=
 TARGET=
 DATA_PATH=./data/
