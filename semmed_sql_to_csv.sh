@@ -71,7 +71,7 @@ select yn in "Yes" "No"; do
     case $yn in
         Yes )
             echo;
-            echo gunzip -c ${SOURCE} | python3 mysqldump_to_csv.py >> ${TARGET}
+            echo "gunzip -c ${SOURCE} | python3 mysqldump_to_csv.py >> ${TARGET}"
             break;;
         No )
             echo
