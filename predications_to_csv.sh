@@ -9,7 +9,7 @@ fi
 #
 # The latest release has a few (seemingly undocumented?) extra columns: FACT_VALUE,MODE_SCALE,MOD_VALUE
 #
-cp col_names_2020.txt ${SEMMEDDB_PREDICATION_CSV}
+cp predication_table_col_names_2020.txt ${SEMMEDDB_PREDICATION_CSV}
 
 # convert mysqldump to csv
 gunzip -c ${SEMMEDDB_PREDICATION_ARCHIVE}| python3 mysqldump_to_csv.py >> ${SEMMEDDB_PREDICATION_CSV}
