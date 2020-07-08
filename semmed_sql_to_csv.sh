@@ -7,31 +7,40 @@ echo
 echo "Converting Semantic Medline Database SQL to CSV..."
 echo
 PS3='Please enter your choice of table to convert: '
-options=("Predications" "Predications Aux" "Sentences" "Quit")
+options=("Predication" "Citations" "Predication Aux" "Sentence" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
-        "Predications")
+        "Predication")
             echo
-            echo "Predications Data"
+            echo "Predication Data"
             SOURCE=${SEMMEDDB_PREDICATION_ARCHIVE}
             TARGET=${SEMMEDDB_PREDICATION_CSV}
             # prepend table column names
             cp predication_table_col_names_2020.txt ${TARGET}
             break
             ;;
-        "Predications Aux")
+        "Citations")
             echo
-            echo "Predications Auxiliary Data"
+            echo "Citations Auxiliary Data"
+            SOURCE=${SEMMEDDB_CITATIONS_ARCHIVE}
+            TARGET=${SEMMEDDB_CITATIONS_CSV}
+            # prepend table column names
+            cp citations_table_col_names_2020.txt ${TARGET}
+            break
+            ;;
+         "Predication Aux")
+            echo
+            echo "Predication Auxiliary Data"
             SOURCE=${SEMMEDDB_PREDICATION_AUX_ARCHIVE}
             TARGET=${SEMMEDDB_PREDICATION_AUX_CSV}
             # prepend table column names
             cp predication_aux_table_col_names_2020.txt ${TARGET}
             break
             ;;
-        "Sentences")
+        "Sentence")
             echo
-            echo "Sentences Data"
+            echo "Sentence Data"
             SOURCE=${SEMMEDDB_SENTENCE_ARCHIVE}
             TARGET=${SEMMEDDB_SENTENCE_CSV}
             # prepend table column names
