@@ -2,6 +2,7 @@
 
 SOURCE=
 TARGET=
+DATA_PATH=./data/
 
 echo
 echo "Converting Semantic Medline Database SQL to CSV..."
@@ -61,7 +62,7 @@ if [[  -z ${TARGET} ]]; then
      exit 0
 fi
 
-echo "Converting '${SOURCE}' to '${TARGET}'"
+echo "Converting '${SOURCE}' to '${TARGET}' in folder '${DATA_PATH}'"
 echo
 
 echo "Do you wish to continue with this conversion?"
@@ -71,7 +72,7 @@ select yn in "Yes" "No"; do
     case $yn in
         Yes )
             echo;
-            echo "gunzip -c ${SOURCE} | python3 mysqldump_to_csv.py >> ${TARGET}"
+            echo "gunzip -c ${DATA_PATH}${SOURCE} | python3 mysqldump_to_csv.py >> ${DATA_PATH}${TARGET}"
             break;;
         No )
             echo
