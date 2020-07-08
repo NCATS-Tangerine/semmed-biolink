@@ -1,14 +1,15 @@
-{"gene": [
+{
+  "Gene": [
     "Gene or Genome"
   ],
-  "protein": [
+  "Protein": [
     "Amino Acid, Peptide, or Protein",
     "Enzyme"
   ],
-  "cell_component": [
+  "CellularComponent": [
     "cell component"
   ],
-  "biological_process_or_activity": [
+  "BiologicalProcessOrActivity": [
     "Molecular Function",
     "Mental Process",
     "Genetic Function",
@@ -17,10 +18,10 @@
     "Organism Function",
     "Organ or Tissue Function"
   ],
-  "cell": [
+  "Cell": [
     "cell"
   ],
-  "activity_and_behavior": [
+  "ActivityAndBehavior": [
     "Social Behavior",
     "Activity",
     "Individual Behavior",
@@ -28,23 +29,24 @@
     "Occupational Activity",
     "Daily or Recreational Activity"
   ],
-  "genomic_entity": [
+  "GenomicEntity": [
     "Nucleotide Sequence",
     "Amino Acid Sequence"
   ],
-  "anatomical_entity": [
+  "AnatomicalEntity": [
     "Body Space or Junction",
     "Body Location or Region",
     "Body Substance"
   ],
-  "gross_anatomical_structure": [
+  "GrossAnatomicalStructure": [
+    "Anatomical Structure",
     "Fully Formed Anatomical Structure",
     "Body Part, Organ, or Organ Component",
     "Tissue",
     "Embryonic Structure",
     "Body System"
   ],
-  "chemical_substance": [
+  "ChemicalSubstance": [
     "Hormone",
     "Organic Chemical",
     "Organophosphorus Compound",
@@ -69,7 +71,7 @@
     "Inorganic Chemical",
     "Lipid"
   ],
-  "disease_or_phenotypic_feature": [
+  "DiseaseOrPhenotypicFeature": [
     "Congenital Abnormality",
     "Injury or Poisoning",
     "Mental or Behavioral Dysfunction",
@@ -83,13 +85,13 @@
     "Disease or Syndrome",
     "Finding"
   ],
-  "individual_organism": [
+  "IndividualOrganism": [
     "Living Beings"
   ],
-  "phenotypic_feature": [
+  "PhenotypicFeature": [
     "Laboratory or Test Result"
   ],
-  "named_thing": [
+  "NamedThing": [
     "Objects"
   ]
 }
