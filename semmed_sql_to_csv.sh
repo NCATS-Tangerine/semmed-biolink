@@ -73,7 +73,7 @@ select yn in "Yes" "No"; do
     case $yn in
         Yes )
             echo;
-            echo "${GUNZIP} -c ${DATA_PATH}${SOURCE} | python3 mysqldump_to_csv.py >> ${DATA_PATH}${TARGET}"
+            ${GUNZIP} -c ${DATA_PATH}${SOURCE} | python3 mysqldump_to_csv.py >> ${DATA_PATH}${TARGET}
             break;;
         No )
             echo
