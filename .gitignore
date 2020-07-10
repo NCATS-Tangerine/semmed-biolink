@@ -9,4 +9,3 @@ py*
 data
 __pycache__/
 .env
-
