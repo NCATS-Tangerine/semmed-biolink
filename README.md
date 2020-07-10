@@ -32,9 +32,15 @@ pip install python-dotenv
 
 The following data and meta-data downloading steps are required before post-processing operations are attempted.
 
-First, copy the file `template.env` file into `.env` and customize it to the required release of SemMedDb, UMLS, MetaMap, etc.  This file contains environment variables imported by the Python module file **semmed_biolink_environment.py** to identify source (meta-)data to be processed by the Jupyter Notebook data processing pipeline. 
+First, copy the file `template.env` file into `.env` and customize it to the required release of SemMedDb, UMLS, MetaMap, etc.  This file contains environment variables imported by the Python module file **semmed_biolink_environment.py** to identify source (meta-)data to be processed by the Jupyter Notebook data processing pipeline.
 
-The `.env` file is also accessed by the `setup_environment.sh` script, which you now using the `source` command on the script, to set up additional OS environment variables used by data conversion. See this script for what variables are set (and may be overridden).
+The `.env` file is also consumed by the `setup_environment.sh` script, which should be run next using the *nix `source` command:
+
+```bash
+source ./setup_environment.sh
+```
+
+to set up additional OS environment variables used by data conversion. Inspect this script to better see which variables are set (and which may be overridden).
 
 The following steps should be followed to download and pre-process the (meta-)data required for further data processing:
 
