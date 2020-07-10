@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
-
-if [[  -z ${SEMMEDDB_PREDICATION_DOWNLOAD} ]]; then
-     echo 'Run the setup_environment.sh script before attempting to run this script!';
-     exit 0;
+if [ -f ".env" ]
+then
+  export $(cat .env | sed 's/#.*//g' | sed '/^[[:space:]]*$/d'  | sed 's/^/export /' |  sed 's/ = /=/' | xargs )
+else
+  echo "Please copy the template.env file into .env; customize as required, before running this script"
+  read
+  exit -1
 fi
-
-echo Downloading ${SEMMEDDB_PREDICATION_DOWNLOAD}

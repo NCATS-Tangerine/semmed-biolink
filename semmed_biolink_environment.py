@@ -9,7 +9,7 @@ DATA = os.getenv("DATA")
 UMLS_VERSION = os.getenv("UMLS_VERSION")
 
 # just taking the 'active' vocabularies; TODO: should the UMLS_PATH be further parameterized?
-UMLS_PATH = DATA + UMLS_VERSION + "_Active"
+UMLS_PATH = DATA + UMLS_VERSION + "_Active/"
 MRSAT_ARCHIVE = UMLS_PATH + "MRSAT.RRF.gz"
 MRCONSO_ENG_ARCHIVE = UMLS_PATH + "MRCONSO_ENG.RRF.gz"
 MRSTY_ARCHIVE = UMLS_PATH + "MRSTY.RRF.gz"
@@ -28,7 +28,7 @@ SEMEDDB_PUBMED_RELEASE = os.getenv("SEMEDDB_PUBMED_RELEASE")
 SEMMEDB_FILE_PREFIX = "semmedVER"+SEMEDDB_VERSION
 
 # Name file format as of Release 4.0(?)
-SEMMEDDB_PREDICATION_FILE = SEMMEDB_FILE_PREFIX+SEMEDDB_PUBMED_RELEASE+"_R_PREDICATION"
+SEMMEDDB_PREDICATION_FILE = SEMMEDB_FILE_PREFIX+"_"+SEMEDDB_PUBMED_RELEASE+"_R_PREDICATION"
 SEMMEDDB_PREDICATION_CSV = DATA+SEMMEDDB_PREDICATION_FILE+".csv"
 
 # Pipeline of data files, don't really need to change between updates
@@ -47,7 +47,7 @@ EDGES_BIOLINK_TSV = DATA + "edges_biolink.tsv"
 NODES_BIOLINK_TSV = DATA + "nodes_biolink.tsv"
 
 UNII_VERSION = os.getenv("UNII_VERSION")
-UNII_RECORDS = DATA+"UNII_Records_"+METAMAP_VERSION+".txt"
+UNII_RECORDS = DATA+"UNII_Records_"+UNII_VERSION+".txt"
 
 XREFS_SHELVE = DATA+"xrefs.shelve"
 UBERON_CSV = DATA+"uberon.csv"
