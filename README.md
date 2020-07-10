@@ -114,11 +114,11 @@ insane, I know.
 
 ## Options for Data Loading
 
-There are now two Jupyter workbooks for data loading.  Note that the second option **006-kgx-load** loading is now preferred and actively maintained.
+There are now two Jupyter workbooks for data loading.  Note that the second option **06b-kgx-load** loading is now preferred and actively maintained.
 
 ### 06a-neo4j-classical-load
 - reformat for neo4j import (old method, not using KGX)
 
-### 006-kgx-load
+### 06b-kgx-load
 - This workbook finalizes the data format of the SemMedDb datasets for KGX import
 
