@@ -22,10 +22,16 @@ pip install wikidataintegrator
 
 2. The [Robot SPARQL query CLI tool](http://robot.obolibrary.org/)
 
-3. The PyQuery modules:
+3. The PyQuery module:
 
 ``` 
 pip install pyquery
+```
+
+4. The dotenv module:
+
+``` 
+pip install python-dotenv
 ```
 
 ## Preparations for running the data processing pipeline
@@ -66,7 +72,7 @@ robot query --input doid.owl --query obo_query.sparql doid.csv
     3. cat MRCONSO.RRF | grep -F "|ENG|" | gzip > MRCONSO_ENG.RRF.gz
     4. gzip -c MRSTY.RRF > MRSTY.RRF.gz
     
-7. The contents of the Python module file **semmed_biolink_environment.py** should be reviewed and revised to meet local site file layout and data releases (Note: as development time permits, the variable data in this module may soon be parameterized  externally in environment variables)
+7. The file `template.env` should be copied into `.env` and customized to the current release of SemMedDb, UMLS, MetaMap, etc.  This file contains environment variables imported by the Python module file **semmed_biolink_environment.py** to identify source (meta-)data to be processed by the data processing pipeline.
 
 ## Data Processing Procedure
 

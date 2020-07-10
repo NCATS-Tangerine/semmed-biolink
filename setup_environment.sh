@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 
-#
-# SemMedDb 2019 data release values in original Greg Stupp script
-#
-# SEMEDDB_DOWNLOAD_PATH=https://skr3.nlm.nih.gov/SemMedDB/download/
-# SEMEDDB_VERSION=31
-# SEMEDDB_PUBMED_RELEASE=to12312017
-#
+if [[ -f .env ]]
+then
+  export $(cat .env | sed 's/#.*//g' | xargs)
+else
+  echo "Please copy the template.env file into .env; customize as required, before running this script"
+  exit -1
+fi
 
 #
 # SemMedDb 2020 data release values taken as defaults in June 2020 script
-# These are the only variables which normally might be overridden from the command line
+# These variables which can be overridden from the command line or by the .env file
 #
 : ${SEMEDDB_DOWNLOAD_PATH:=https://ii.nlm.nih.gov/SemRep_SemMedDB_SKR/SemMedDB/download/}
 : ${SEMEDDB_VERSION:=42}
@@ -32,7 +32,7 @@ SEMMEDB_FILE_PREFIX=semmedVER${SEMEDDB_VERSION}
 # Slightly revised file name format in SemMedDb 2020 data release
 
 # Predication Table Data Targets:
-SEMMEDDB_PREDICATION_FILE=${SEMMEDB_FILE_PREFIX}_${SEMEDDB_PUBMED_RELEASE}_R_PREDICATION
+: ${SEMMEDDB_PREDICATION_FILE:=${SEMMEDB_FILE_PREFIX}_${SEMEDDB_PUBMED_RELEASE}_R_PREDICATION
 export SEMMEDDB_PREDICATION_ARCHIVE=${SEMMEDDB_PREDICATION_FILE}.sql.gz
 export SEMMEDDB_PREDICATION_DOWNLOAD=${SEMEDDB_DOWNLOAD_PATH}${SEMMEDDB_PREDICATION_ARCHIVE}
 export SEMMEDDB_PREDICATION_CSV=${SEMMEDDB_PREDICATION_FILE}.csv
