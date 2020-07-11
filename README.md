@@ -4,7 +4,9 @@ This project provides a systematic protocol of (bash shell and Python) scripts t
 
 The data processing operations documented in this project are best attempted on a *nix system (Linux, OSX) given the dependency of various steps on *nix specific OS scripts and operations.
 
-## Prerequisites
+The Semantic Medline Database release to be processed, along with UMLS and other (meta-)data release choices, is now parameterized by the values of environment variables set in a `.env` file in the root directory (see below), for which a `template.env` sample is provided (based on (meta-)data available in late June 2020).  Thus, the project may be rerun largely intact on future data releases (unless the underlying data models and metadata formats change - everyone's mileage may vary in the future)
+
+## 3rd Party Software Dependencies
 
 Some of the ontology and identifier  cross-reference resolution operations (Jupyter Notebook '05-xrefs') require external software to be pre-installed:
 
