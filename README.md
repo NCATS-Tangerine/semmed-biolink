@@ -46,7 +46,7 @@ to set up additional OS environment variables used by data conversion. Inspect t
 
 The following steps should be followed to download and pre-process the (meta-)data required for further data processing:
 
-1. Log into NLM UTS (we assume that you are a registered user of the UTS, right?) then download the following target into your chosen working directory, URLs as defined by the specified environment variables (in CAPS below) which were set by the `setup_environment.sh` script:
+1. SemMedDb data files are accessed  via the  [Semantic Medline Database Home Page](https://skr3.nlm.nih.gov/SemMed/) at the link provided ([https://skr3.nlm.nih.gov/SemMed/semmed.html](https://skr3.nlm.nih.gov/SemMed/semmed.html) as  of May 2021), the access to which will  require you to log into NLM UTS (we assume that you are a registered user of the UTS, right?) then download the following target into your chosen working directory, URLs as defined by the specified environment variables (in CAPS below) which were set by the `setup_environment.sh` script:
 
     1. SEMMEDDB_PREDICATION_DOWNLOAD
     2. SEMMEDDB_PREDICATION_AUX_DOWNLOAD
