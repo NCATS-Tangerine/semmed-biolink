@@ -20,16 +20,15 @@
   ],
   "Agent": [
       "Organization",
-      "Health Care Related Organization",,
+      "Health Care Related Organization",
       "Professional Society",
       "Self-help or Relief Organization",
-      "Group",
-      "Professional or Occupational Group"
+      "Group"
   ],
   "Event":  [
     "Event"
   ],
-  "informationContentEntity": [
+  "InformationContentEntity": [
       "Conceptual Entity",
       "Idea or Concept",
       "Temporal Concept",
@@ -74,7 +73,7 @@
     "Biologic Function",
     "Environmental Effect of Humans"
   ],
-  "Devices": [
+  "Device": [
     "Devices",
     "Medical Device",
     "Research Device",
@@ -90,23 +89,26 @@
   "MolecularEntity": [
     "Carbohydrate",
     "Molecular Sequence",
-  ],
-  "ChemicalEntity":  [
-    "Chemical",
-    "Chemical Viewed Functionally",
-    "Chemical Viewed Structurally",
     "Inorganic Chemical",
     "Organic Chemical",
-    "Hormone",
-    "Biologically Active Substance",
-    "Immunologic Factor",
-    "Hazardous or Poisonous Substance",
-    "Indicator, Reagent, or Diagnostic Aid",
+    "Chemical Viewed Functionally",
+    "Chemical Viewed Structurally",
+    "Biologically Active Substance"
+  ],
+  "ChemicalMixture":  [
+    "Chemical"
+  ],
+  "ComplexMolecularMixture":  [
     "Substance"
+  ],
+  "ProcessedMaterial": [
+    "Indicator, Reagent, or Diagnostic Aid"
   ],
   "SmallMolecule":   [
     "Element, Ion, or Isotope",
-    "Eicosanoid"
+    "Eicosanoid",
+    "Hormone",
+    "Immunologic Factor"
   ],
   "NucleicAcidEntity": [
     "Gene or Genome",
@@ -123,7 +125,7 @@
     "Cell Function",
     "Genetic Function"
   ],
-  "Behaviour": [
+  "Behavior": [
     "Behavior",
     "Mental Process",
     "Social Behavior",
@@ -139,9 +141,6 @@
   ],
   "Food": [
     "Food"
-  ],
-  "OrganismAttribute": [
-    "Organism Attribute"
   ],
   "IndividualOrganism": [
     "Organism"
@@ -164,7 +163,9 @@
     "Neoplastic Process"
   ],
   "PhenotypicFeature": [
-    "Sign or Symptom"
+    "Sign or Symptom",
+    "Organism Attribute",
+    "Clinical Attribute"
   ],
   "AnatomicalEntity": [
     "Body System",
@@ -193,9 +194,6 @@
   "Protein": [
     "Enzyme",
     "Receptor"
-  ],
-  "ClinicalAttribute":  [
-    "Clinical Attribute"
   ],
   "Cohort": [
     "Professional or Occupational Group",

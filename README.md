@@ -4,7 +4,7 @@ This project provides a systematic protocol of (bash shell and Python) scripts t
 
 The data processing operations documented in this project are best attempted on a *nix system (Linux, OSX) given the dependency of various steps on *nix specific OS scripts and operations.
 
-The Semantic Medline Database release to be processed, along with UMLS and other (meta-)data release choices, is now parameterized by the values of environment variables set in a `.env` file in the root directory (see below), for which a `template.env` sample is provided (based on (meta-)data available in late June 2020).  Thus, the project may be rerun largely intact on future data releases (unless the underlying data models and metadata formats change - everyone's mileage may vary in the future)
+The Semantic Medline Database release to be processed, along with UMLS and other (meta-)data release choices, is now parameterized by the values of environment variables set in a `.env` file in the root directory (see below), for which a `template.env` sample is provided (based on (meta-)data available in late April 2021).  Thus, the project may be rerun largely intact on future data releases (unless the underlying data models and metadata formats change - everyone's mileage may vary in the future)
 
 ## 3rd Party Software Dependencies
 
@@ -12,11 +12,11 @@ Some of the ontology and identifier  cross-reference resolution operations (Jupy
 
 ### Robot SPARQL query CLI tool
 
-The [Robot SPARQL query CLI tool](http://robot.obolibrary.org/) needs  to be installed for usage below  in parsing owl ontology  files  for the p roject.
+The [Robot SPARQL query CLI tool](http://robot.obolibrary.org/) needs  to be installed for usage below  in parsing owl ontology  files  for the project.
 
 ### Python Packages
 
-The [00-setup-environment](00-setup-environment.ipynb] Jupyter Notebook can be run to install the following Python package dependencies into the Python kernel process:
+The [00-setup-environment](00-setup-environment.ipynb) Jupyter Notebook can be run to install the following Python package dependencies into the Python kernel process:
 
 1. The `wikidataintegrator`  module.
 2. The `PyQuery` module.
@@ -26,7 +26,7 @@ The [00-setup-environment](00-setup-environment.ipynb] Jupyter Notebook can be r
 
 The following data and meta-data downloading steps are required before post-processing operations are attempted.
 
-First, copy the file `template.env` file into `.env` and customize it to the required release of SemMedDb, UMLS, MetaMap, etc.  This file contains environment variables imported by the Python module file **semmed_biolink_environment.py** to identify source (meta-)data to be processed by the Jupyter Notebook data processing pipeline.
+First, copy the file `template.env` file into `.env` and customize it to the required release of SemMedDb, UMLS, MetaMap, etc.  This file contains environment variables imported by the Python module file **semmedb_biolink_environment.py** to identify source (meta-)data to be processed by the Jupyter Notebook data processing pipeline.
 
 The `.env` file is also consumed by the `setup_environment.sh` script, which should be run next using the *nix `source` command:
 
@@ -60,9 +60,9 @@ robot query --input uberon.owl --query obo_query.sparql uberon.csv
 robot query --input doid.owl --query obo_query.sparql doid.csv
 ```
     
-5. Run the `semmed_sql_to_csv.sh` script on each SemMedDb SQL file downloaded (which converts various SEMMEDDB\_\*\_ARCHIVE files to the corresponding SEMMEDDB\_\*\_CSV files).  Note: if CSV formatted files are initially downloaded,then this step is not required.
+5. Run the `semmedb_sql_to_csv.sh` script on each SemMedDb SQL file downloaded (which converts various SEMMEDDB\_\*\_ARCHIVE files to the corresponding SEMMEDDB\_\*\_CSV files).  Note: if CSV formatted files are initially downloaded,then this step is not required. Note, however, that the downloaded CSV files lack a CSV header row. Thus, prepending the header rows from the various *_table_col_names_2020.txt files onto their corresponding data files, will be necessary, or the Pandas read_csv may be modified accordingly (alternate cell versions for the two situations may be provided).
 
-6. Manually unzip the UMLS_ARCHIVE, extracting the contained files into one folder (e.g. `2021AB-full`). Also unzip the embedded `mmsys.zip` archive. This archive contains the MetamorphoSys - The UMLS Installation and Customization Program which must now be used to generate the required Metathesaurus - Rich Release Format (RRF) files (see list below). Running the startup script for the 'mmsys' application (specific script for your chosen platform) brings up the Metamorphosys application dialog dialog box. Select "Install UMLS" and you only need to select the "Metathesaurus" option. When prompted for a configuration, selection "New Configuration" which will ask you to select the level of vocabulary extraction. You will need to  choose the "Level" of intellectual properly compliance compatible with your licensing and data distribution plans (for NCATS, where indicated, we use the full vocabulary including SNOMED). Modify any additional input and output details in the full dialog if necessary (input is NLM, output is RRF). Note that the extracted files should be in the directory set in the  **UMLS_PATH** variable set in the `semmed_biolink_environment.py` module (perhaps something like '_<project dir>/data/2020AA_Active_`).  After all parameters are set, initiate the subset generation (Note: the way to initiate this seems to subtly vary between operating systems, so read the [Metamorphosys documentation](https://www.nlm.nih.gov/research/umls/implementation_resources/metamorphosys/help.html) for clarification). After the vocabulary subsets are generated, apply the following (*nix OS) operations on the indicated "Rich Release Format" ("RRF") files that were generated by the above operation, to further prepare them for use in the SemMedDb processing protocols:
+6. Manually unzip the UMLS_ARCHIVE, extracting the contained files into one folder (e.g. `2021AB-full`). Also unzip the embedded `mmsys.zip` archive. This archive contains the MetamorphoSys - The UMLS Installation and Customization Program which must now be used to generate the required Metathesaurus - Rich Release Format (RRF) files (see list below). Running the startup script for the 'mmsys' application (specific script for your chosen platform) brings up the Metamorphosys application dialog dialog box. Select "Install UMLS" and you only need to select the "Metathesaurus" option. When prompted for a configuration, selection "New Configuration" which will ask you to select the level of vocabulary extraction. You will need to  choose the "Level" of intellectual properly compliance compatible with your licensing and data distribution plans (for NCATS, where indicated, we use the full vocabulary including SNOMED). Modify any additional input and output details in the full dialog if necessary (input is NLM, output is RRF). Note that the extracted files should be in the directory set in the  **UMLS_PATH** variable set in the `semmedb_biolink_environment.py` module imported for useby  the Jupyter Notebook-driven data processing pipeline (the script currently expects to set a path something like `<project dir>/data/<UMLS_VERSION>_Active/<UMLS_VERSION>/META/`  where the **UMLS_VERSION** is the value set in the corresponding **.env** environment variable.    Move the  files to that location if necessary).  After all parameters are set, initiate the subset generation (Note: the way to initiate this seems to subtly vary between operating systems, so read the [Metamorphosys documentation](https://www.nlm.nih.gov/research/umls/implementation_resources/metamorphosys/help.html) for clarification). After the vocabulary subsets are generated, apply the following (*nix OS) operations on the indicated "Rich Release Format" ("RRF") files that were generated by the above operation, to further prepare them for use in the SemMedDb processing protocols:
 
     1. gzip -c MRCONSO.RRF  > MRCONSO.RRF.gz
     2. gzip -c MRSAT.RRF > MRSAT.RRF.gz 
